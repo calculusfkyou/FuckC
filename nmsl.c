@@ -1,16 +1,29 @@
-#include<stdio.h>
-int sum(int a[],int num1);
-int arr[10]={1,2,3,4,5,6,7,8,9,10};
+#include <stdio.h>
+int temp(int a[],int num1);
+int arr[10]={2,3,5,7,11,13,17,23,29,31};
 int main(){
     int ans=0;
-    ans=sum(arr,sizeof(arr)/sizeof(int));
-    printf("%d",ans);
+    ans=temp(arr,sizeof(arr)/sizeof(int));
+    if(ans==0){
+    	printf("%s","False");
+	}
+	else if(ans==1){
+		printf("%s","True");
+	}
     return 0;
 }
-int sum(int a[],int num1){
-    int total=0;
+int temp(int a[],int num1){
+    int prime=0;
     for(int i=0;i<num1;i++){
-        total+=a[i];
+        for(int j=1;j<=a[i];j++){
+        	if((a[i]%j)==0){
+        		prime+=1;
+			}
+		}
+		if(prime>2){
+			return 0;
+		}
+		prime=0;
     }
-    return total;
+    return 1;
 }
