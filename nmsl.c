@@ -1,29 +1,21 @@
-#include <stdio.h>
-int temp(int a[],int num1);
-int arr[10]={2,3,5,7,11,13,17,23,29,31};
+#include<stdio.h>
+int fn(int num,int num2);
+int count=0;
+int m=16,n=4;
 int main(){
-    int ans=0;
-    ans=temp(arr,sizeof(arr)/sizeof(int));
-    if(ans==0){
-    	printf("%s","False");
-	}
-	else if(ans==1){
-		printf("%s","True");
-	}
-    return 0;
+	printf("%d",fn(m,n));
+	return 0;
 }
-int temp(int a[],int num1){
-    int prime=0;
-    for(int i=0;i<num1;i++){
-        for(int j=1;j<=a[i];j++){
-        	if((a[i]%j)==0){
-        		prime+=1;
-			}
-		}
-		if(prime>2){
-			return 0;
-		}
-		prime=0;
-    }
-    return 1;
+int fn(int num,int num2){
+	if(num==0){
+		return count;
+	}
+	if(num2==0){
+		return 0;
+	}
+	if(num>=num2){
+		count+=1;
+		return fn(num-num2,num2);
+	}
+	return count;
 }
