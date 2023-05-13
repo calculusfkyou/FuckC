@@ -150,6 +150,6 @@ int main(){
     cout<<~s1<<~s2<<5<<"\n";      // ~:peek
     !s1;                    // empty stack  
     s1<<0<<s2;              //overloading <<  // 我將 "<<" 設定為 s1原本的資料保留，然後將s2裡的資料由top丟進s1，
-    cout<<s1<<(s2<<-1)<<s3; //到這裡都對 
+    cout<<s1<<(s2<<-1)<<s3; 
     return 0;
 }
