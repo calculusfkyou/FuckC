@@ -130,11 +130,6 @@ ostream& operator<<(ostream&os, Stack&s){   //cout
     s.print_stack();
     return os;
 }
-// Stack& operator+(const Stack& s1, const Stack& s2) {
-//     Stack temp(s1);
-//     temp += s2;
-//     return temp;
-// }
 int main(){
     int m=5;
     Stack s1,s2(m),s3(s1);  //overloading constructors
@@ -147,7 +142,7 @@ int main(){
     cout<<s1<<s2<<s3;       
     cout<<-s1<<-s2<<-s3;    // -: pop
     cout<<s1<<s2<<s3;       
-    cout<<~s1<<~s2<<5<<"\n";      // ~:peek
+    cout<<~s1<<~s2<<5;      // ~:peek
     !s1;                    // empty stack  
     s1<<0<<s2;              //overloading <<  // 我將 "<<" 設定為 s1原本的資料保留，然後將s2裡的資料由top丟進s1，
     cout<<s1<<(s2<<-1)<<s3; 
