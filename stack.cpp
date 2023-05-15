@@ -114,13 +114,6 @@ public:
         }
         return *this;
     }
-    int operator-=(int num) {
-        int popped_element;
-        while (num--) {
-            popped_element = pop();
-        }
-        return popped_element;
-    }
     int operator~() {
         return peek();
     }
