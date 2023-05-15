@@ -6,7 +6,8 @@ private:
     int top;
     int*arr;
 public: 
-    /*在此定義完整的stack類別，使得main()可以完美執行*/
+    /*在此定義完整的stack類別，使得main()可以完美執行*/     
+    int len=DEFAULT_STACK_SIZE;                                 
     Stack() : top(-1) {
         arr=new int[DEFAULT_STACK_SIZE];
     }
@@ -16,6 +17,7 @@ public:
             exit(EXIT_FAILURE);
         }
         arr = new int[size];
+        len=size;
     }
     Stack(const Stack& s) : top(s.top) {
         arr = new int[DEFAULT_STACK_SIZE];
@@ -27,7 +29,7 @@ public:
         return top == -1;
     }
     bool is_full() {
-        return top == DEFAULT_STACK_SIZE - 1;
+        return top==len-1;
     }
     void push(int element) {
         if (is_full()) {
@@ -95,7 +97,10 @@ public:
                 temp2.push(temp.pop()); 
             }
             while(!temp2.is_empty()){
-                push(temp2.pop()); 
+                if(!is_full())
+                    push(temp2.pop()); 
+                else
+                    break;
             }
         }
         return *this;
