@@ -142,7 +142,7 @@ int main(){
     s1<<1<<2<<3;            // << : push element
     cout<<s1<<s2<<s3;       //overloading <<
     s2<<8<<9;               //s1:123 s2:89
-    s3=s2+=s1<<4;           // +=: copy content to other stack //先做<< //s1:1234 //s2+=s1 //s2=891234 //s3=s2
+    s3=s2+=s1<<4;           // +=: copy content to other stack //先做<< //s1:1234 //s2+=s1 //s2=89123 //s3=s2 //注意長度
 //    s3=(s2+s1)<<4;
     cout<<s1<<s2<<s3;       
     cout<<-s1<<-s2<<-s3;    // -: pop
