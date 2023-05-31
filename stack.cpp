@@ -64,7 +64,8 @@ public:
         cout<<"\n";
     }
     Stack& operator<<(int data){
-        push(data);
+        if(!is_full())
+            push(data);
         return *this;
     }
     Stack& operator<<(Stack &s){
