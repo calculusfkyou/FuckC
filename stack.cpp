@@ -149,36 +149,36 @@
 // }
 #include <stdio.h>
 class Actor{
-int left, right;
+    int left, right;
 public:
-Actor(int);
-Actor(int, int);
-Actor(Actor&);
-Actor& operator+(Actor);
-int operator!();
+    Actor(int);
+    Actor(int, int);
+    Actor(Actor&);
+    Actor& operator+(Actor);
+    int operator!();
 };
 Actor::Actor(int n):left(n), right(-n){}
 Actor::Actor(int m, int n){ left=-m; right=m-n;}
 Actor::Actor(Actor& actor):left(actor.right), right(actor.left){}
 Actor& Actor::operator+(Actor actor){
-left+=actor.left;
-right=actor.right;
-actor.left=actor.right=0;
-return *this;
+    left+=actor.left;
+    right=actor.right;
+    actor.left=actor.right=0;
+    return *this;
 }
 int Actor::operator!(){
-if(left>right)
-printf("%d%d\n", left,right);
-else
-printf("%d\n", right-left);
-return left+right;
+    if(left>right)
+    printf("%d%d\n", left,right);
+    else
+    printf("%d\n", right-left);
+    return left+right;
 }
 int main(){
-Actor joe(11111102 % 5), mary(11111102 % 10, 11111102 % 2);
-Actor peter(mary);
-!joe; // (1)
-!!mary; // (2)
-printf("%d\n", !peter+11); // (3)
-!(joe+mary); // (4)
-return 0;
+    Actor joe(11111102 % 5), mary(11111102 % 10, 11111102 % 2);
+    Actor peter(mary);
+    !joe; // (1)
+    !!mary; // (2)
+    printf("%d\n", !peter+11); // (3)
+    !(joe+mary); // (4)
+    return 0;
 }
